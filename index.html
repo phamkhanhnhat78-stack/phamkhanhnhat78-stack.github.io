@@ -114,6 +114,23 @@
             margin-bottom: 10px;
         }
 
+        .card h3 a {
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3 a:hover {
+            color: var(--accent);
+        }
+
+        .card h3 a i {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
         .card p {
             color: var(--text-muted);
             font-size: 15px;
@@ -146,6 +163,32 @@
             font-size: 14px;
             font-family: 'JetBrains Mono', monospace;
         }
+
+        .social-links {
+            margin-bottom: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Urbanist', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background-color: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
     </style>
 </head>
 <body>
@@ -166,7 +209,11 @@
                 <section>
                     <h2><i class="fa-solid fa-terminal"></i> Featured Projects</h2>
                     <div class="card" style="margin-bottom: 20px;">
-                        <h3>my_python_project</h3>
+                        <h3>
+                            <a href="https://github.com/phamkhanhnhat78-stack/my_python_project" target="_blank">
+                                my_python_project <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </h3>
                         <p>Developed an automated backend scripting utility designed to optimize environment staging, structure deployment configuration logic, and manage integrated Git/GitHub team workflows.</p>
                         <div class="tags">
                             <span class="tag">Python 3</span>
@@ -175,7 +222,11 @@
                         </div>
                     </div>
                     <div class="card">
-                        <h3>Cloud Architecture Sandbox</h3>
+                        <h3>
+                            <a href="https://github.com/phamkhanhnhat78-stack/Cloud-Architecture-Sandbox" target="_blank">
+                                Cloud Architecture Sandbox <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </h3>
                         <p>A dedicated environment focused on mapping AWS infrastructure blueprints, building secure virtual private networks (VPC), and configuring scalable Linux/Windows system deployment models.</p>
                         <div class="tags">
                             <span class="tag">AWS SAA-C03</span>
@@ -213,6 +264,11 @@
         </div>
 
         <footer>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/khanhnhat-pham" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                </a>
+            </div>
             <p>&copy; 2026 phamkhanhnhat78-stack. Powered by GitHub Pages.</p>
         </footer>
     </div>
