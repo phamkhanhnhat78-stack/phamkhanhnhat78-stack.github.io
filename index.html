@@ -20,6 +20,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html" class="active">Home</a>
+                <a href="#aws-blueprint">Blueprint</a>
                 <a href="projects.html">Projects</a>
                 <a href="about.html">About</a>
             </div>
@@ -146,29 +147,73 @@
                 </article>
             </section>
 
-            <section class="architecture-showcase" aria-label="Architecture diagram preview">
+            <section class="architecture-showcase" id="aws-blueprint" aria-label="AWS web system blueprint">
                 <div class="section-heading compact">
                     <p class="eyebrow">Architecture preview</p>
                     <h2>AWS web system blueprint</h2>
+                    <p>
+                        A production-minded web system design that shows request entry, security controls, application routing, data stores, observability, and delivery operations.
+                    </p>
                 </div>
-                <div class="architecture-panel">
-                    <div class="diagram-lane public">
-                        <span class="lane-label">Public subnet</span>
-                        <div class="diagram-node"><i class="fa-solid fa-globe"></i> Internet</div>
-                        <div class="diagram-arrow" aria-hidden="true"></div>
-                        <div class="diagram-node"><i class="fa-solid fa-scale-balanced"></i> Application Load Balancer</div>
+                <div class="blueprint-panel">
+                    <div class="blueprint-lane">
+                        <span class="lane-label">User &amp; Edge</span>
+                        <div class="blueprint-node delivery"><i class="fa-solid fa-route"></i><strong>Route 53</strong><small>DNS and health routing</small></div>
+                        <div class="blueprint-node security"><i class="fa-solid fa-shield-halved"></i><strong>AWS WAF</strong><small>Managed rules and rate limits</small></div>
+                        <div class="blueprint-node delivery"><i class="fa-solid fa-cloud"></i><strong>CloudFront</strong><small>CDN, TLS, caching</small></div>
+                        <div class="blueprint-node data"><i class="fa-solid fa-box-archive"></i><strong>S3 Assets</strong><small>Private static origin</small></div>
                     </div>
-                    <div class="diagram-lane private">
-                        <span class="lane-label">Private app subnets</span>
-                        <div class="diagram-node"><i class="fa-solid fa-server"></i> EC2 / Auto Scaling</div>
-                        <div class="diagram-arrow" aria-hidden="true"></div>
-                        <div class="diagram-node"><i class="fa-solid fa-lock"></i> Security Groups</div>
+                    <div class="blueprint-lane">
+                        <span class="lane-label">Application</span>
+                        <div class="blueprint-node compute"><i class="fa-solid fa-plug"></i><strong>API Gateway</strong><small>Auth boundary and throttling</small></div>
+                        <div class="blueprint-node compute"><i class="fa-solid fa-code"></i><strong>Lambda / ECS</strong><small>Business logic and jobs</small></div>
+                        <div class="blueprint-node compute"><i class="fa-solid fa-list-check"></i><strong>SQS + EventBridge</strong><small>Retries and async workflows</small></div>
+                        <div class="blueprint-node security"><i class="fa-solid fa-user-lock"></i><strong>Cognito</strong><small>Identity and JWT claims</small></div>
                     </div>
-                    <div class="diagram-lane data">
-                        <span class="lane-label">Private data subnet</span>
-                        <div class="diagram-node"><i class="fa-solid fa-database"></i> RDS Database</div>
-                        <div class="diagram-node"><i class="fa-solid fa-box-archive"></i> S3 Backups</div>
+                    <div class="blueprint-lane">
+                        <span class="lane-label">Data &amp; State</span>
+                        <div class="blueprint-node data"><i class="fa-solid fa-table"></i><strong>DynamoDB</strong><small>Low-latency app state</small></div>
+                        <div class="blueprint-node data"><i class="fa-solid fa-database"></i><strong>RDS / Aurora</strong><small>Relational transactions</small></div>
+                        <div class="blueprint-node data"><i class="fa-solid fa-folder-tree"></i><strong>S3 Data Lake</strong><small>Exports and audit files</small></div>
+                        <div class="blueprint-node security"><i class="fa-solid fa-key"></i><strong>KMS + Secrets</strong><small>Encryption and rotation</small></div>
                     </div>
+                    <div class="blueprint-lane">
+                        <span class="lane-label">Operations</span>
+                        <div class="blueprint-node ops"><i class="fa-solid fa-code-branch"></i><strong>CodePipeline</strong><small>Build, test, deploy</small></div>
+                        <div class="blueprint-node ops"><i class="fa-solid fa-chart-line"></i><strong>CloudWatch</strong><small>Logs, metrics, alarms</small></div>
+                        <div class="blueprint-node ops"><i class="fa-solid fa-cubes"></i><strong>IaC</strong><small>CDK or Terraform stacks</small></div>
+                        <div class="blueprint-node ops"><i class="fa-solid fa-coins"></i><strong>Cost Controls</strong><small>Budgets, tags, retention</small></div>
+                    </div>
+                </div>
+
+                <div class="blueprint-detail-grid" aria-label="Blueprint implementation details">
+                    <article class="card">
+                        <div class="section-title">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            <h2>Request Flow</h2>
+                        </div>
+                        <p>
+                            Users enter through Route 53 and CloudFront. WAF filters risky traffic, API Gateway validates requests, and compute services route synchronous work to data stores or long-running work to SQS.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <div class="section-title">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <h2>Production Readiness</h2>
+                        </div>
+                        <p>
+                            The blueprint already covers core service boundaries, security controls, and observability. Before production, it should define traffic targets, RTO/RPO, IAM policy detail, database access patterns, rollback strategy, and monthly cost estimates.
+                        </p>
+                    </article>
+                    <article class="card">
+                        <div class="section-title">
+                            <i class="fa-solid fa-road"></i>
+                            <h2>Delivery Roadmap</h2>
+                        </div>
+                        <p>
+                            Phase 1: S3, CloudFront, API Gateway, Lambda, DynamoDB. Phase 2: WAF, Cognito, monitoring, CI/CD. Phase 3: IaC modules, backup policy, load testing, and cost governance.
+                        </p>
+                    </article>
                 </div>
             </section>
 
