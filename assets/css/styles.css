@@ -361,7 +361,7 @@ dt {
 }
 
 .tags,
-.skill-list,
+skill-list,
 .mascot-tags {
     margin-top: 18px;
 }
@@ -562,6 +562,89 @@ dt {
     transform: translateY(-50%) rotate(45deg);
 }
 
+.blueprint-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        #101923;
+    background-size: 24px 24px;
+    padding: 22px;
+    box-shadow: 0 16px 40px rgba(23, 32, 42, 0.11);
+}
+
+.blueprint-lane {
+    display: grid;
+    grid-template-columns: 132px repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch;
+    min-height: 104px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 14px;
+    color: #ffffff;
+}
+
+.blueprint-node {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 7px;
+    min-height: 86px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-top: 4px solid #80d5c1;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px;
+}
+
+.blueprint-node i {
+    color: #80d5c1;
+    font-size: 18px;
+}
+
+.blueprint-node strong {
+    color: #f8fbff;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.blueprint-node small {
+    color: #b8c7d3;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.blueprint-node.delivery {
+    border-top-color: #77a7ff;
+}
+
+.blueprint-node.security {
+    border-top-color: #ff9d8d;
+}
+
+.blueprint-node.compute {
+    border-top-color: #80d5c1;
+}
+
+.blueprint-node.data {
+    border-top-color: #8fdd9f;
+}
+
+.blueprint-node.ops {
+    border-top-color: #ffc36f;
+}
+
+.blueprint-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
 .project-detail-list {
     display: grid;
     gap: 22px;
@@ -631,12 +714,14 @@ dt {
     .about-layout,
     .values-grid,
     .detail-grid,
+    .blueprint-detail-grid,
     .mascot-section {
         grid-template-columns: 1fr;
     }
 
     .diagram-lane,
-    .diagram-lane.data {
+    .diagram-lane.data,
+    .blueprint-lane {
         grid-template-columns: 1fr;
     }
 
